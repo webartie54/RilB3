@@ -18,7 +18,7 @@ namespace MVCWebApplicationTD
                 url: "{controller}/{action}/{lang}",
                 defaults: new { controller = "ManageLang", action = "Index", lang = UrlParameter.Optional }
             );
-
+            //route de traduction
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
