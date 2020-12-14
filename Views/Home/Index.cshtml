@@ -1,0 +1,83 @@
+﻿@model IEnumerable<MVCWebApplicationTD.Models.ProductSet>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Hosting Cesi.NET</h1>
+    <p class="lead">Hosting Cesi .NET le leader de l'hébergement discount en France.</p>
+    <p><a href="https://cesi.fr" target="_blank" class="btn btn-primary btn-lg">En savoir plus &raquo;</a></p>
+</div>
+
+<div class="row justify-content-start">
+
+    <div class="col-lg-12">
+        <img src="https://www.frenchsouth.digital/wp-content/uploads/2020/10/Marketing-de-contenu.jpg" width="25%" />
+
+    </div>
+
+    <div class="col-lg-12">
+        <h2>Nos offres d'hébergements</h2>
+
+
+
+
+        <table class="table table-bordered table-dark">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.Price)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                </tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name) <span class="glyphicon glyphicon-ok" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price) € / mois
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+
+
+                        <ul>
+
+                            @foreach (var version in item.VersionOfProduct)
+                            {
+                                <li>@version.VersionName</li>
+
+                            }
+                        </ul>
+
+
+                    </td>
+                    <td>
+                        <button class="btn-system no-border btn-large pack_option-2 font-size-20 py-15">Commander</button>
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+
+
+
+
+    </div>
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+
+    </div>
+</div>
